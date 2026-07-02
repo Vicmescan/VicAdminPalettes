@@ -1,0 +1,26 @@
+{% block vic_palette_switcher %}
+<li class="vic-palette-switcher sw-admin-menu__navigation-list-item">
+
+    {% block vic_palette_switcher_label %}
+    <span class="vic-palette-switcher__label">
+        {{ $t('vic-admin-palettes.switcher.label') }}
+    </span>
+    {% endblock %}
+
+    {% block vic_palette_switcher_swatches %}
+    <div class="vic-palette-switcher__swatches">
+        <button
+            v-for="palette in palettes"
+            :key="palette.id"
+            class="vic-palette-switcher__swatch"
+            :class="{ 'is--active': currentPaletteId === palette.id }"
+            :style="{ backgroundColor: palette.color }"
+            :title="$t('vic-admin-palettes.palettes.' + palette.id)"
+            :aria-pressed="currentPaletteId === palette.id ? 'true' : 'false'"
+            @click="selectPalette(palette.id)"
+        />
+    </div>
+    {% endblock %}
+
+</li>
+{% endblock %}

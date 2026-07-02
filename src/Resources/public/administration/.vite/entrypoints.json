@@ -1,0 +1,25 @@
+{
+  "base": "/bundles/vicadminpalettes/administration/",
+  "entryPoints": {
+    "vic-admin-palettes": {
+      "css": [
+        "/bundles/vicadminpalettes/administration/assets/vic-admin-palettes-2idIyz1N.css"
+      ],
+      "dynamic": [],
+      "js": [
+        "/bundles/vicadminpalettes/administration/assets/vic-admin-palettes-jeOWyoJI.js"
+      ],
+      "legacy": false,
+      "preload": []
+    }
+  },
+  "legacy": false,
+  "metadatas": {},
+  "version": [
+    "7.1.0",
+    7,
+    1,
+    0
+  ],
+  "viteServer": null
+}

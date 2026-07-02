@@ -1,0 +1,215 @@
+export const USER_CONFIG_KEY = 'vic-admin-palettes.palette';
+const STYLE_ID = 'vic-admin-palettes-style';
+
+export const PALETTES = {
+    shopware: {
+        id: 'shopware',
+        color: '#189eff',
+        vars: null,
+        menuCss: null,
+        darkTheme: false,
+    },
+
+    midnight: {
+        id: 'midnight',
+        color: '#26262b',
+        vars: null,
+        darkTheme: true,
+        // The Meteor component library already handles most UI with [data-theme="dark"].
+        // This overrides the sidebar which uses hardcoded compiled SCSS values.
+        menuCss: `
+            body { background: #09090b !important; }
+
+            /* Sidebar */
+            .sw-admin-menu,
+            .sw-admin-menu_flyout-holder { background: #141418 !important; }
+            .sw-admin-menu .sw-admin-menu__navigation-link.router-link-active { background: #09090b !important; }
+            .sw-admin-menu .sw-admin-menu__navigation-list-item:hover,
+            .sw-admin-menu__navigation-list-item.is--flyout-enabled { background: #26262b !important; }
+            .sw-admin-menu__navigation-list-item.is--entry-expanded,
+            .sw-admin-menu__navigation-list-item.is--entry-expanded:hover { background: #09090b !important; }
+            .sw-admin-menu__user-actions-toggle { background: #09090b !important; }
+            .sw-admin-menu__user-actions-toggle:hover,
+            .sw-admin-menu__user-actions-toggle.is--active { background: #1e1e24 !important; }
+            .sw-admin-menu__user-actions .sw-admin-menu__navigation-list-item { background: #09090b !important; }
+            .sw-admin-menu__user-actions-label { background: #09090b !important; }
+
+            /* sw-meteor-page header — uses hardcoded $color-white in SCSS, not a CSS variable */
+            .sw-meteor-page__head-area {
+                background: #141418 !important;
+                border-bottom-color: #2d2e32 !important;
+                color: #fafbfe !important;
+            }
+            .sw-meteor-page__head-area-top-bar-content::after {
+                background-color: #2d2e32 !important;
+            }
+            .sw-meteor-page__smart-bar-title { color: #fafbfe !important; }
+
+            /* Category tree side panel — sw-category-detail.scss hardcodes $color-white */
+            .sw-category .sw-page__side-content { background: #1e1e24 !important; }
+
+            /* Category tree popover — hardcoded white bg not following dark theme */
+            .sw-popover__wrapper {
+                background: #1e1e24 !important;
+                border-color: #2d2e32 !important;
+            }
+            .sw-popover__wrapper .sw-tree-item__label {
+                color: #fafbfe !important;
+            }
+            .sw-popover__wrapper .sw-tree-item__icon svg path {
+                fill: #8b8b9b !important;
+            }
+
+            /* Autofill — browser forces white bg via box-shadow inset; override with dark */
+            input:-webkit-autofill,
+            input:-webkit-autofill:hover,
+            input:-webkit-autofill:focus,
+            input:-webkit-autofill:active {
+                -webkit-box-shadow: 0 0 0 1000px #1e1e24 inset !important;
+                -webkit-text-fill-color: #fafbfe !important;
+            }
+        `,
+    },
+
+    forest: {
+        id: 'forest',
+        color: '#4caf50',
+        darkTheme: false,
+        vars: {
+            // Shopware brand scale → green
+            '--color-shopware-brand-50': '#e8f5e9',
+            '--color-shopware-brand-100': '#c8e6c9',
+            '--color-shopware-brand-200': '#a5d6a7',
+            '--color-shopware-brand-300': '#81c784',
+            '--color-shopware-brand-400': '#66bb6a',
+            '--color-shopware-brand-500': '#4caf50',
+            '--color-shopware-brand-600': '#43a047',
+            '--color-shopware-brand-700': '#388e3c',
+            '--color-shopware-brand-800': '#2e7d32',
+            '--color-shopware-brand-900': '#1b5e20',
+            // Meteor component library design tokens
+            '--color-interaction-primary-default': '#388e3c',
+            '--color-interaction-primary-hover': '#2e7d32',
+            '--color-interaction-primary-pressed': '#1b5e20',
+            '--color-interaction-primary-disabled': '#a5d6a7',
+            '--color-icon-brand-default': '#388e3c',
+            '--color-icon-brand-hover': '#2e7d32',
+            '--color-icon-brand-pressed': '#1b5e20',
+            '--color-icon-brand-disabled': '#a5d6a7',
+            '--color-text-brand-default': '#388e3c',
+            '--color-text-brand-hover': '#2e7d32',
+            '--color-text-brand-pressed': '#1b5e20',
+            '--color-text-brand-disabled': '#a5d6a7',
+            '--color-text-brand-inverse': '#66bb6a',
+            '--color-border-brand-selected': '#388e3c',
+            '--color-border-brand-default': '#388e3c',
+            '--color-border-brand-disabled': '#a5d6a7',
+            '--color-background-brand-default': '#e8f5e9',
+        },
+        menuCss: `
+            .sw-admin-menu,
+            .sw-admin-menu_flyout-holder { background: #1a3d2a !important; }
+            .sw-admin-menu .sw-admin-menu__navigation-link.router-link-active { background: #0d2a1a !important; }
+            .sw-admin-menu .sw-admin-menu__navigation-list-item:hover,
+            .sw-admin-menu__navigation-list-item.is--flyout-enabled { background: #1e4a30 !important; }
+            .sw-admin-menu__navigation-list-item.is--entry-expanded,
+            .sw-admin-menu__navigation-list-item.is--entry-expanded:hover { background: #0d2a1a !important; }
+            .sw-admin-menu__user-actions-toggle { background: #0d2a1a !important; }
+            .sw-admin-menu__user-actions-toggle:hover,
+            .sw-admin-menu__user-actions-toggle.is--active { background: #143320 !important; }
+            .sw-admin-menu__user-actions .sw-admin-menu__navigation-list-item { background: #0d2a1a !important; }
+            .sw-admin-menu__user-actions-label { background: #0d2a1a !important; }
+        `,
+    },
+
+    ember: {
+        id: 'ember',
+        color: '#ff9800',
+        darkTheme: false,
+        vars: {
+            // Shopware brand scale → orange/amber
+            '--color-shopware-brand-50': '#fff3e0',
+            '--color-shopware-brand-100': '#ffe0b2',
+            '--color-shopware-brand-200': '#ffcc80',
+            '--color-shopware-brand-300': '#ffb74d',
+            '--color-shopware-brand-400': '#ffa726',
+            '--color-shopware-brand-500': '#ff9800',
+            '--color-shopware-brand-600': '#fb8c00',
+            '--color-shopware-brand-700': '#f57c00',
+            '--color-shopware-brand-800': '#ef6c00',
+            '--color-shopware-brand-900': '#e65100',
+            // Meteor component library design tokens
+            '--color-interaction-primary-default': '#f57c00',
+            '--color-interaction-primary-hover': '#ef6c00',
+            '--color-interaction-primary-pressed': '#e65100',
+            '--color-interaction-primary-disabled': '#ffcc80',
+            '--color-icon-brand-default': '#f57c00',
+            '--color-icon-brand-hover': '#ef6c00',
+            '--color-icon-brand-pressed': '#e65100',
+            '--color-icon-brand-disabled': '#ffcc80',
+            '--color-text-brand-default': '#f57c00',
+            '--color-text-brand-hover': '#ef6c00',
+            '--color-text-brand-pressed': '#e65100',
+            '--color-text-brand-disabled': '#ffcc80',
+            '--color-text-brand-inverse': '#ffa726',
+            '--color-border-brand-selected': '#f57c00',
+            '--color-border-brand-default': '#f57c00',
+            '--color-border-brand-disabled': '#ffcc80',
+            '--color-background-brand-default': '#fff3e0',
+        },
+        menuCss: `
+            .sw-admin-menu,
+            .sw-admin-menu_flyout-holder { background: #3e2000 !important; }
+            .sw-admin-menu .sw-admin-menu__navigation-link.router-link-active { background: #2a1500 !important; }
+            .sw-admin-menu .sw-admin-menu__navigation-list-item:hover,
+            .sw-admin-menu__navigation-list-item.is--flyout-enabled { background: #4a2800 !important; }
+            .sw-admin-menu__navigation-list-item.is--entry-expanded,
+            .sw-admin-menu__navigation-list-item.is--entry-expanded:hover { background: #2a1500 !important; }
+            .sw-admin-menu__user-actions-toggle { background: #2a1500 !important; }
+            .sw-admin-menu__user-actions-toggle:hover,
+            .sw-admin-menu__user-actions-toggle.is--active { background: #361c00 !important; }
+            .sw-admin-menu__user-actions .sw-admin-menu__navigation-list-item { background: #2a1500 !important; }
+            .sw-admin-menu__user-actions-label { background: #2a1500 !important; }
+        `,
+    },
+};
+
+// Collect all CSS variable keys used across all palettes for clean reset
+const ALL_VAR_KEYS = [...new Set(
+    Object.values(PALETTES)
+        .flatMap(p => p.vars ? Object.keys(p.vars) : []),
+)];
+
+export function applyPalette(paletteId) {
+    const palette = PALETTES[paletteId] || PALETTES.shopware;
+
+    // Toggle Meteor dark theme
+    if (palette.darkTheme) {
+        document.documentElement.setAttribute('data-theme', 'dark');
+    } else {
+        document.documentElement.removeAttribute('data-theme');
+    }
+
+    // Reset all known CSS variables to allow clean palette switch
+    ALL_VAR_KEYS.forEach(k => document.documentElement.style.removeProperty(k));
+
+    // Apply palette-specific CSS variables
+    if (palette.vars) {
+        Object.entries(palette.vars).forEach(([k, v]) => {
+            document.documentElement.style.setProperty(k, v);
+        });
+    }
+
+    // Apply/remove injected stylesheet for menu overrides
+    let styleEl = document.getElementById(STYLE_ID);
+    if (palette.menuCss) {
+        if (!styleEl) {
+            styleEl = document.createElement('style');
+            styleEl.id = STYLE_ID;
+            document.head.appendChild(styleEl);
+        }
+        styleEl.textContent = palette.menuCss;
+    } else if (styleEl) {
+        styleEl.remove();
+    }
+}

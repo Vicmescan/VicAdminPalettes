@@ -1,0 +1,13 @@
+{
+    "vic-admin-palettes": {
+        "switcher": {
+            "label": "Theme"
+        },
+        "palettes": {
+            "shopware": "Shopware (default)",
+            "midnight": "Midnight",
+            "forest": "Forest",
+            "ember": "Ember"
+        }
+    }
+}

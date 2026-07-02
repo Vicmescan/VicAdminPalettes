@@ -1,0 +1,34 @@
+{
+    "name": "vicmescan/vic-admin-palettes",
+    "description": "Color palette switcher for the Shopware administration",
+    "version": "1.0.0",
+    "type": "shopware-platform-plugin",
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "Vicmescan",
+            "homepage": "https://github.com/Vicmescan"
+        }
+    ],
+    "require": {
+        "shopware/core": "~6.7.0"
+    },
+    "extra": {
+        "shopware-plugin-class": "Vic\\AdminPalettes\\VicAdminPalettes",
+        "label": {
+            "de-DE": "Admin Farbpaletten",
+            "en-GB": "Admin Color Palettes",
+            "es-ES": "Paletas de color del admin"
+        },
+        "description": {
+            "de-DE": "Wähle aus mehreren Farbpaletten für den Shopware-Admin aus.",
+            "en-GB": "Choose from several color palettes for the Shopware administration.",
+            "es-ES": "Elige entre varias paletas de color para el admin de Shopware."
+        }
+    },
+    "autoload": {
+        "psr-4": {
+            "Vic\\AdminPalettes\\": "src/"
+        }
+    }
+}

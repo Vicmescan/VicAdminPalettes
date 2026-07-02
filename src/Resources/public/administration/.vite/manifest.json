@@ -1,0 +1,11 @@
+{
+  "main.js": {
+    "file": "assets/vic-admin-palettes-jeOWyoJI.js",
+    "name": "vic-admin-palettes",
+    "src": "main.js",
+    "isEntry": true,
+    "css": [
+      "assets/vic-admin-palettes-2idIyz1N.css"
+    ]
+  }
+}

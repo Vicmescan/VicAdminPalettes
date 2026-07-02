@@ -1,0 +1,13 @@
+{
+    "vic-admin-palettes": {
+        "switcher": {
+            "label": "Farbschema"
+        },
+        "palettes": {
+            "shopware": "Shopware (Standard)",
+            "midnight": "Mitternacht",
+            "forest": "Wald",
+            "ember": "Glut"
+        }
+    }
+}
